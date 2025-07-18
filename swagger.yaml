@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Profile Enrichment Service
+  description: Enrich user data by scraping <h1> tag from a profile URL
+
+host: localhost:3000
+basePath: /
+
+paths:
+  /users/enrich:
+    post:
+      summary: Enrich user profile
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+              email:
+                type: string
+              profileUrl:
+                type: string
+            required:
+              - username
+              - email
+              - profileUrl
+      responses:
+        201:
+          description: Profile enriched successfully
+        400:
+          description: Missing required fields
+        500:
+          description: Scraping or server error
