@@ -34,6 +34,21 @@ This backend service enriches user profiles by scraping the `<h1>` tag from a pr
 > ✅ Node.js 18.x or later  
 > ✅ Git installed
 
+
+## 📥 API Endpoint
+
+### `POST /users/enrich`
+
+**Request Body:**
+
+```json
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "profileUrl": "https://httpbin.org/html"
+}
+
+
 ### 🔧 Setup Steps
 
 ```bash
@@ -52,15 +67,3 @@ npm run dev
 🔗 Server: http://localhost:3000
 📄 Swagger Docs: http://localhost:3000/api-docs
 
-## 📥 API Endpoint
-
-### `POST /users/enrich`
-
-**Request Body:**
-
-```json
-{
-  "username": "testuser",
-  "email": "test@example.com",
-  "profileUrl": "https://httpbin.org/html"
-}
